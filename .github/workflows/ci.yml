@@ -58,17 +58,11 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
         
-      # - name: setup
-      #   run: |
-      #     bundle exec rake db:setup
-
       - name: run test
         env:
           PGHOST: localhost
           PGUSER: postgres
           PGPORT: 5432
-          # POSTGRES_PASSWORD: postgres
-          # POSTGRES_DB: test#
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}    
         run: |
