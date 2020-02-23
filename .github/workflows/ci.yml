@@ -37,7 +37,7 @@ jobs:
           node-version: '12'
 
       - name: setup yarn
-        uses: Borales/actions-yarn@v2.1.0
+        uses: borales/actions-yarn@v2.1.0
         with:
           cmd: install
       
