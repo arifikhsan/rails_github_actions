@@ -1,4 +1,5 @@
-name: Ci
+name: rails github action
+
 on: 
   push:
     branches:
@@ -6,10 +7,15 @@ on:
   pull_request:
     branches:
       - master
-      
+
 jobs: 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    
+      fail-fast: true
     services: 
       db: 
         image: postgres:11
