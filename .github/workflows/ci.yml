@@ -25,6 +25,7 @@ jobs:
           ruby-version: 2.6.x
         env:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+      - name: check version
         run: ruby -v
       - name: Build and run tests
         run: |
