@@ -18,7 +18,6 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.x
-      - run: ruby --version
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
           RAILS_ENV: test
