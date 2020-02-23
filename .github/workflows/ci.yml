@@ -28,6 +28,12 @@ jobs:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       - name: check version
         run: ruby -v
+
+      - name: install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      
       - name: Build and run tests
         run: |
           sudo apt-get -yqq install libpq-dev
