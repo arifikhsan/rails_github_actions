@@ -72,5 +72,6 @@ jobs:
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}    
         run: |
+          bundle exec rake db:migrate
           bundle exec rake test
     
