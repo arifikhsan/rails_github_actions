@@ -20,12 +20,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: setup ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.x
         env:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+    
       - name: check version
         run: ruby -v
 
@@ -33,6 +35,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12'
+
+      - name: setup yarn
+        uses: borales/actions-yarn@v2
+        with:
+          cmd: install
       
       - name: Build and run tests
         run: |
