@@ -16,6 +16,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     steps:
       - uses: actions/checkout@v2
       - name: setup ruby
@@ -23,9 +24,8 @@ jobs:
         with:
           ruby-version: 2.6.x
         env:
-          # DATABASE_URL: postgres://postgres:@localhost:5432/test
-          # RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+        run: ruby -v
       - name: Build and run tests
         run: |
           sudo apt-get -yqq install libpq-dev
