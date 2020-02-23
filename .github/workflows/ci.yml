@@ -38,8 +38,6 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.x
-        env:
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
     
       - name: check version
         run: ruby -v
@@ -61,5 +59,10 @@ jobs:
           bundle install --jobs 4 --retry 3
         
       - name: run test
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}    
         run: |
           bundle exec rake
