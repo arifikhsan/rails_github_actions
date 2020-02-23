@@ -41,8 +41,11 @@ jobs:
         with:
           cmd: install
       
-      - name: Build and run tests
+      - name: Build
         run: |
           sudo apt-get -yqq install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
+      - name: run test
+        run: |
+          bundle exec rake
