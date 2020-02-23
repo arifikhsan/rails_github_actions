@@ -58,9 +58,9 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
         
-      - name: setup
-        run: |
-          bundle exec rake db:setup
+      # - name: setup
+      #   run: |
+      #     bundle exec rake db:setup
 
       - name: run test
         env:
@@ -71,5 +71,6 @@ jobs:
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}    
         run: |
+          bundle exec rake db:setup
           bundle exec rake test
           
