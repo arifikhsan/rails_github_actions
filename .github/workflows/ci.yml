@@ -52,7 +52,7 @@ jobs:
         with:
           cmd: install
       
-      - name: Build and install
+      - name: build and install
         run: |
           sudo apt-get -yqq install libpq-dev
           gem install bundler
